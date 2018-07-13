@@ -1,5 +1,6 @@
 package com.example.weather.cities.data.weather
 
+import com.example.weather.cities.data.Utils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Controller
@@ -18,9 +19,9 @@ class WeatherController : IWeather.ServiceToController{
         }
     }
 
-    @Scheduled(fixedRate = 5000)
     fun saveFetchedData(weatherModel: WeatherModel){
         try{
+            weatherModel.setId(Utils.getUserId())
             weatherService.saveWeatherData(weatherModel)
         } catch (e : Exception){
 

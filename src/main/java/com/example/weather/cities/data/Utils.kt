@@ -8,7 +8,7 @@ import okhttp3.Interceptor
 import org.springframework.http.HttpHeaders.AUTHORIZATION
 import java.io.IOException
 import org.springframework.lang.NonNull
-
+import java.util.*
 
 
 object Utils {
@@ -44,4 +44,11 @@ object Utils {
         return _builder.client(client).build()
 
     }
+
+    fun getUserId() : Long{
+        val rand  =  Random()
+        rand.longs(10,1000)
+        return rand.nextLong()
+    }
+
 }

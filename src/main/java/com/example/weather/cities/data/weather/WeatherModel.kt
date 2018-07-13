@@ -5,6 +5,7 @@ import java.io.Serializable
 import java.sql.Timestamp
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
@@ -12,6 +13,7 @@ import javax.persistence.Table
 class WeatherModel : Serializable{
 
     @Column(name = "id")
+    @Id
     private var id : Long = 0
 
     @Column(name = "coordinates")
@@ -31,27 +33,35 @@ class WeatherModel : Serializable{
     private var main : String = ""
 
     @Column(name = "visibility")
+    @JsonProperty(value = "visibility")
     private var visibility : Long = 0
 
     @Column(name = "wind")
+    @JsonProperty(value = "wind")
     private var wind : String = ""
 
     @Column(name = "clouds")
+    @JsonProperty(value = "clouds")
     private var clouds : String = ""
 
     @Column(name = "time_stamp")
+    @JsonProperty(value = "time_stamp")
     private var timestamp : Timestamp? = null
 
     @Column(name = "sys")
+    @JsonProperty(value = "sys")
     private var sys : String = ""
 
     @Column(name = "weather_id")
+    @JsonProperty(value = "weather_id")
     private var weatherId : Int = 0
 
     @Column(name = "name")
+    @JsonProperty(value = "name")
     private var name : String = ""
 
     @Column(name = "cod")
+    @JsonProperty(value = "cod")
     private var cod : Int = 0
 
 
